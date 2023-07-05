@@ -9,7 +9,7 @@
         <h1 class="mb-4">ChatGPT Prompt Generator</h1>
 
         <div class="mb-3">
-            <label for="qustion" class="form-label">Enter your expected response:</label>
+            <label for="question" class="form-label">Enter your expected response:</label>
             <input type="text" id="question" class="form-control">
         </div>
         <div class="mb-3">
@@ -37,7 +37,7 @@
     <script>
         $(document).ready(function() {
             $('#generate-btn').click(function() {
-                const input1 = $('#question').val();
+                const question = $('#question').val();
                 const input1 = $('#input1').val();
                 const input2 = $('#input2').val();
                 const input3 = $('#input3').val();
