@@ -12,23 +12,41 @@
             <label for="question" class="form-label">Enter your expected response:</label>
             <input type="text" id="question" class="form-control">
         </div>
-        <div class="mb-3">
-            <label for="input1" class="form-label">Enter your main input:</label>
-            <input type="text" id="input1" class="form-control">
+        <div class="input-container">
+            <h5>Main Input</h5>
+            <div class="mb-3">
+                <label for="input1" class="form-label">Title:</label>
+                <input type="text" id="input1-title" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="input1-content" class="form-label">Content:</label>
+                <textarea id="input1-content" rows="4" class="form-control"></textarea>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="input2" class="form-label">Enter your additional input:</label>
-            <input type="text" id="input2" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="input3" class="form-label">Enter your additional input:</label>
-            <input type="text" id="input3" class="form-control">
+        <div class="additional-inputs-container">
+            <h5>Additional Inputs</h5>
+            <div class="mb-3">
+                <label for="input2-title" class="form-label">Title:</label>
+                <input type="text" id="input2-title" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="input2-content" class="form-label">Content:</label>
+                <textarea id="input2-content" rows="4" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="input3-title" class="form-label">Title:</label>
+                <input type="text" id="input3-title" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="input3-content" class="form-label">Content:</label>
+                <textarea id="input3-content" rows="4" class="form-control"></textarea>
+            </div>
         </div>
         <button id="generate-btn" class="btn btn-primary">Generate Prompt</button>
         <br><br>
         <div id="prompt-container">
             <label for="prompt" class="form-label">Prompt:</label>
-            <textarea id="prompt" rows="4" class="form-control" readonly></textarea>
+            <textarea id="prompt" rows="8" class="form-control" readonly></textarea>
             <button id="copy-btn" class="btn btn-success mt-3">Copy Response & Paste Into ChatGPT or BardAI</button>
         </div>
         <br>
@@ -44,11 +62,14 @@
         $(document).ready(function() {
             $('#generate-btn').click(function() {
                 const question = $('#question').val();
-                const input1 = $('#input1').val();
-                const input2 = $('#input2').val();
-                const input3 = $('#input3').val();
+                const mainInputTitle = $('#input1-title').val();
+                const mainInputContent = $('#input1-content').val();
+                const additionalInput1Title = $('#input2-title').val();
+                const additionalInput1Content = $('#input2-content').val();
+                const additionalInput2Title = $('#input3-title').val();
+                const additionalInput2Content = $('#input3-content').val();
             
-                const prompt = `Question: ${question}\nInput 1: ${input1}\nInput 2: ${input2}\nInput 3: ${input3}`;
+                const prompt = `**Question:** ${question}\n\n**Main Input:**\nTitle: ${mainInputTitle}\nContent: ${mainInputContent}\n\n**Additional Inputs:**\n1. Title: ${additionalInput1Title}\n   Content: ${additionalInput1Content}\n2. Title: ${additionalInput2Title}\n   Content: ${additionalInput2Content}`;
             
                 $('#prompt').val(prompt);
             });
