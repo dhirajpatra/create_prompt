@@ -9,15 +9,19 @@
         <h1 class="mb-4">ChatGPT Prompt Generator</h1>
 
         <div class="mb-3">
-            <label for="input1" class="form-label">Input 1:</label>
+            <label for="qustion" class="form-label">Enter your expected response:</label>
+            <input type="text" id="question" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="input1" class="form-label">Enter your example:</label>
             <input type="text" id="input1" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="input2" class="form-label">Input 2:</label>
+            <label for="input2" class="form-label">Enter your additional input:</label>
             <input type="text" id="input2" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="input3" class="form-label">Input 3:</label>
+            <label for="input3" class="form-label">Enter your additional input:</label>
             <input type="text" id="input3" class="form-control">
         </div>
         <button id="generate-btn" class="btn btn-primary">Generate Prompt</button>
@@ -33,11 +37,12 @@
     <script>
         $(document).ready(function() {
             $('#generate-btn').click(function() {
+                const input1 = $('#question').val();
                 const input1 = $('#input1').val();
                 const input2 = $('#input2').val();
                 const input3 = $('#input3').val();
 
-                const prompt = `Input 1: ${input1}\nInput 2: ${input2}\nInput 3: ${input3}`;
+                const prompt = `Question: ${question}\nInput 1: ${input1}\nInput 2: ${input2}\nInput 3: ${input3}`;
 
                 $('#prompt').val(prompt);
             });
