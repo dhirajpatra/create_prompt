@@ -25,6 +25,7 @@
         <div id="prompt-container">
             <label for="prompt" class="form-label">Prompt:</label>
             <textarea id="prompt" rows="4" class="form-control" readonly></textarea>
+            <button id="copy-btn" class="btn btn-success mt-3">Copy Response</button>
         </div>
     </div>
 
@@ -39,6 +40,14 @@
                 const prompt = `Input 1: ${input1}\nInput 2: ${input2}\nInput 3: ${input3}`;
 
                 $('#prompt').val(prompt);
+            });
+
+            $('#copy-btn').click(function() {
+                const prompt = $('#prompt');
+                prompt.select();
+                document.execCommand('copy');
+                prompt.blur();
+                alert('Response copied to clipboard!');
             });
         });
     </script>
