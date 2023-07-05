@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatGPT Prompt Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>ChatGPT Prompt Generator</h1>
+
+    <div>
+        <label for="input1">Input 1:</label><br>
+        <input type="text" id="input1"><br>
+    </div>
+    <div>
+        <label for="input2">Input 2:</label><br>
+        <input type="text" id="input2"><br>
+    </div>
+    <div>
+        <label for="input3">Input 3:</label><br>
+        <input type="text" id="input3"><br>
+    </div>
+    <br>
+    <button id="generate-btn">Generate Prompt</button>
+    <br><br>
+    <div id="prompt-container">
+        <label for="prompt">Prompt:</label><br>
+        <textarea id="prompt" rows="4" cols="50" readonly></textarea>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Event listener for the "Generate Prompt" button
+            $('#generate-btn').click(function() {
+                // Get the values from the inputs
+                const input1 = $('#input1').val();
+                const input2 = $('#input2').val();
+                const input3 = $('#input3').val();
+
+                // Create the prompt by combining the inputs
+                const prompt = `Input 1: ${input1}\nInput 2: ${input2}\nInput 3: ${input3}`;
+
+                // Update the prompt textarea with the generated prompt
+                $('#prompt').val(prompt);
+            });
+        });
+    </script>
+</body>
+</html>
